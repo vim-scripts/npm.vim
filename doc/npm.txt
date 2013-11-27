@@ -1,0 +1,41 @@
+*npm.txt* npm.vim: Run NPM commands in Vim (0.1.1).
+          For Vim version 7.x
+          By Thomas Allen <thomas@oinksoft.com>
+
+npm.vim makes it easy to run npm commands from Vim. It doesn't have any
+interesting features like errorlist integration yet.
+
+Please report issues or feature requests at:
+    https://github.com/oinksoft/npm.vim/
+
+=============================================================================
+Global Commands
+
+:Npm <command> [options..]                                              *:Npm*
+
+Calls `npm <command> [options]`. Commands can be tab-completed.
+
+=============================================================================
+Global Settings                                                 *npm-settings* 
+
+
+                                                            *g:npm_background*
+g:npm_background = 1
+
+If set to non-zero, runs all commands in background (so you lose their
+output).
+
+                                                       *g:npm_custom_commands*
+g:npm_custom_commands = []
+
+If some NPM commands aren't being picked up, add them to this list.
+
+=============================================================================
+License                                                          *npm-license*
+
+npm.vim is released under the MIT license. See the comments at the head of
+npm.vim for the full license text, or the "COPYING" file you should have
+received with your copy of this software.
+
+vim:ft=help:norl:
+
