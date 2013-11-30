@@ -16,8 +16,6 @@ Global Settings:
 
 If set to non-zero, runs all commands in background (so you lose their output).
 
-Overridden by g:npm_foreground.
-
     g:npm_custom_commands = []
 
 If some NPM commands aren't being picked up, add them to this list.

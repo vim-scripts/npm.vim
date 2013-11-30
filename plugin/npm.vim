@@ -1,10 +1,10 @@
 " File: npm.vim
 " Description: Tab completion for NPM commands.
 " Author: Thomas Allen <thomas@oinksoft.com>
-" Version: 0.1.1
+" Version: 0.1.2
 
 " Copyright (c) 2013 Oinksoft <https://oinksoft.com/>
-" 
+"
 " Permission is hereby granted, free of charge, to any person obtaining a
 " copy of this software and associated documentation files (the
 " "Software"), to deal in the Software without restriction, including
@@ -12,10 +12,10 @@
 " distribute, sublicense, and/or sell copies of the Software, and to
 " permit persons to whom the Software is furnished to do so, subject to
 " the following conditions:
-" 
+"
 " The above copyright notice and this permission notice shall be included
 " in all copies or substantial portions of the Software.
-" 
+"
 " THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
 " OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 " MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
@@ -32,25 +32,31 @@ let g:npm_loaded = 1
 
 " Settings
 
+function! s:defsetting(name, default)
+  if !exists(a:name)
+    exec 'let ' . a:name . ' = ' . string(a:default)
+  endif
+endfunction
+
 " If set to non-zero, runs all commands in background (so you lose their
 " output).
-let g:npm_background = 0
+call s:defsetting('g:npm_background', 0)
 
 " If some NPM commands aren't being picked up, add them with this list.
-let g:npm_custom_commands = []
+call s:defsetting('g:npm_custom_commands', [])
 
 function! g:npm(...)
   if len(a:000)
     call s:npm_command(a:000[0], a:000[1:])
   else
     call s:npm_command('help', [])
-  end
+  endif
 endfunction
 
 function! s:npm_command(cmd, args)
   let cmd = join(['npm', a:cmd] + map(a:args, 'shellescape(v:val)'), ' ')
   let out = system(cmd)
-  if ! g:npm_background
+  if !g:npm_background
     echo out
   endif
 endfunction

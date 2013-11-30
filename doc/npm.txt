@@ -16,11 +16,11 @@ Global Commands
 Calls `npm <command> [options]`. Commands can be tab-completed.
 
 =============================================================================
-Global Settings                                                 *npm-settings* 
+Global Settings                                                 *npm-settings*
 
 
                                                             *g:npm_background*
-g:npm_background = 1
+g:npm_background = 0
 
 If set to non-zero, runs all commands in background (so you lose their
 output).
