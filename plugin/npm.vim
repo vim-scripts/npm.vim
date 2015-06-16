@@ -1,9 +1,9 @@
 " File: npm.vim
 " Description: Tab completion for NPM commands.
 " Author: Thomas Allen <thomas@oinksoft.com>
-" Version: 0.1.2
+" Version: 0.1.3
 
-" Copyright (c) 2013 Oinksoft <https://oinksoft.com/>
+" Copyright (c) 2013 Oinksoft <http://oinksoft.com/>
 "
 " Permission is hereby granted, free of charge, to any person obtaining a
 " copy of this software and associated documentation files (the
@@ -45,7 +45,7 @@ call s:defsetting('g:npm_background', 0)
 " If some NPM commands aren't being picked up, add them with this list.
 call s:defsetting('g:npm_custom_commands', [])
 
-function! g:npm(...)
+function! Npm(...)
   if len(a:000)
     call s:npm_command(a:000[0], a:000[1:])
   else
@@ -61,7 +61,7 @@ function! s:npm_command(cmd, args)
   endif
 endfunction
 
-function! g:npm_complete(arg_lead, cmd_lead, cursor_pos)
+function! NpmComplete(arg_lead, cmd_lead, cursor_pos)
   if !exists('g:npm_commands')
     let g:npm_commands = s:load_npm_commands()
   endif
@@ -99,4 +99,4 @@ function! s:load_npm_commands()
 endfunction
 
 " Usage: :Npm <command> [args...]
-command! -complete=customlist,g:npm_complete -nargs=* Npm :call g:npm(<f-args>)
+command! -complete=customlist,NpmComplete -nargs=* Npm :call Npm(<f-args>)

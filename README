@@ -2,8 +2,6 @@ This is a mirror of http://www.vim.org/scripts/script.php?script_id=4783
 
 npm.vim makes it easy to run npm commands from Vim. It doesn't have any interesting features like errorlist integration yet.
 
-Please report issues or feature requests at https://github.com/oinksoft/npm.vim/
-
 Global Commands:
 
     :Npm <command> [options..]
